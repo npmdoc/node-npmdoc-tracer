@@ -1,0 +1,703 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://github.com/baryon/tracer">tracer (v0.8.7)</a>
+</h1>
+<h4>A powerful and customizable logging library for node.js. support color console with timestamp, line number, method name, file name and call stack. you can set transport to file, stream, database(ex: mongodb and clouddb, simpledb). keywords: log, logger, t</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tracer">module tracer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.close">
+            function <span class="apidocSignatureSpan">tracer.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.colorConsole">
+            function <span class="apidocSignatureSpan">tracer.</span>colorConsole
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.console">
+            function <span class="apidocSignatureSpan">tracer.</span>console
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.dailyfile">
+            function <span class="apidocSignatureSpan">tracer.</span>dailyfile
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.getLevel">
+            function <span class="apidocSignatureSpan">tracer.</span>getLevel
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.setLevel">
+            function <span class="apidocSignatureSpan">tracer.</span>setLevel
+            <span class="apidocSignatureSpan">(level)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tracer.</span>settings</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tracer.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tracer.settings">module tracer.settings</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.settings.close">
+            function <span class="apidocSignatureSpan">tracer.settings.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.settings.getLevel">
+            function <span class="apidocSignatureSpan">tracer.settings.</span>getLevel
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.settings.setLevel">
+            function <span class="apidocSignatureSpan">tracer.settings.</span>setLevel
+            <span class="apidocSignatureSpan">(level)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tracer.</span>settings</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tracer.utils">module tracer.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.utils.format">
+            function <span class="apidocSignatureSpan">tracer.utils.</span>format
+            <span class="apidocSignatureSpan">(f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tracer.utils.union">
+            function <span class="apidocSignatureSpan">tracer.utils.</span>union
+            <span class="apidocSignatureSpan">(obj, args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tracer" id="apidoc.module.tracer">module tracer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.close" id="apidoc.element.tracer.close">
+        function <span class="apidocSignatureSpan">tracer.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (){
+	settings.level = Number.MAX_VALUE;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+setLevel and close methods to dynamically change the log level.
+these are global settings, affect all output that are created via tracer
+
+```javascript
+var tracer = require('tracer');
+tracer.setLevel(2); //or tracer.setLevel('debug');
+//... ...
+tracer.<span class="apidocCodeKeywordSpan">close</span>();
+
+```
+
+notice:
+if you set level in initialize, you can't change more lower level than the initial level.
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.colorConsole" id="apidoc.element.tracer.colorConsole">
+        function <span class="apidocSignatureSpan">tracer.</span>colorConsole
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">colorConsole = function (conf) {
+	return require('./console')({
+		filters : {
+			//log : do nothing
+			trace : colors.magenta,
+			debug : colors.cyan,
+			info : colors.green,
+			warn : colors.yellow,
+			error : colors.red.bold
+		}
+	}, conf);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var logger = require('tracer').console();
+```
+
+
+Color Console
+
+```javascript
+var logger = require('tracer').<span class="apidocCodeKeywordSpan">colorConsole</span>();
+```
+
+Set Output Level
+
+```javascript
+var logger = require('tracer').colorConsole({level:'warn'});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.console" id="apidoc.element.tracer.console">
+        function <span class="apidocSignatureSpan">tracer.</span>console
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">console = function () {
+	// default config
+	var _config = {
+		format : "{{timestamp}} &lt;{{title}}&gt; {{file}}:{{line}} ({{method}}) {{message}}",
+		dateformat : "isoDateTime",
+		preprocess : function(data) {
+		},
+		transport : function(data) {
+			console.log(data.output);
+		},
+		filters : [],
+		level : 'log',
+		methods : [ 'log', 'trace', 'debug', 'info', 'warn', 'error' ],
+		stackIndex : 0,		// get the specified index of stack as file information. It is userful for development package.
+		inspectOpt : {
+			showHidden : false, //if true then the object's non-enumerable properties will be shown too. Defaults to false
+			depth : 2 //tells inspect how many times to recurse while formatting the object. This is useful for inspecting large complicated
+ objects. Defaults to 2. To make it recurse indefinitely pass null.
+		}
+	};
+
+	// union user's config and default
+	_config = utils.union(_config, arguments);
+
+	var _self = {};
+
+	_config.format = Array.isArray(_config.format) ? _config.format
+		: [ _config.format ];
+
+	_config.filters = Array.isArray(_config.filters) ? _config.filters
+		: [ _config.filters ];
+
+	_config.transport = Array.isArray(_config.transport) ? _config.transport : [_config.transport];
+
+	var fLen = _config.filters.length, lastFilter;
+	if (fLen &gt; 0)
+		if (Object.prototype.toString.call(_config.filters[--fLen]) != '[object Function]') {
+			lastFilter = _config.filters[fLen];
+			_config.filters = _config.filters.slice(0, fLen);
+		}
+
+	if (typeof (_config.level) == 'string')
+		_config.level = _config.methods.indexOf(_config.level);
+
+	_config.methods.forEach(function(title, i) {
+		if (i &lt; _config.level)
+			_self[title] = noop;
+		else {
+			var format = _config.format[0];
+			if (_config.format.length === 2 &amp;&amp; _config.format[1][title])
+				format = _config.format[1][title];
+			var needstack = /{{(method|path|line|pos|file)}}/i.test(format);
+
+			var filters;
+			if (lastFilter &amp;&amp; lastFilter[title])
+				filters = Array.isArray(lastFilter[title]) ? lastFilter[title]
+					: [ lastFilter[title] ];
+			else
+				filters = _config.filters;
+
+			// interface
+			_self[title] = function() {
+				return logMain(_config, i, title, format, filters, needstack, arguments);
+			};
+		}
+	});
+
+	return _self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Usage
+-----
+Add to your code:
+
+Simple Console
+
+```javascript
+var logger = require('tracer').<span class="apidocCodeKeywordSpan">console</span>();
+```
+
+
+Color Console
+
+```javascript
+var logger = require('tracer').colorConsole();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.dailyfile" id="apidoc.element.tracer.dailyfile">
+        function <span class="apidocSignatureSpan">tracer.</span>dailyfile
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dailyfile = function (conf) {
+    var _conf = {
+        root: '.',
+        logPathFormat: '{{root}}/{{prefix}}.{{date}}.log',
+        splitFormat: 'yyyymmdd',
+        allLogsFileName: false,
+        maxLogFiles: 10
+    };
+
+    _conf = utils.union(_conf, [conf]);
+
+    function LogFile(prefix, date) {
+        this.date = date;
+        this.path = tinytim.tim(_conf.logPathFormat, {root: _conf.root, prefix: prefix, date: date});
+        spawnSync('mkdir', ['-p', _conf.root]);
+        this.stream = fs.createWriteStream(this.path, {
+            flags: "a",
+            encoding: "utf8",
+            mode: parseInt('0644', 8)
+            // When engines node &gt;= 4.0.0, following notation will be better:
+            //mode: 0o644
+        });
+    }
+
+    LogFile.prototype.write = function (str) {
+        this.stream.write(str + "\n");
+    };
+
+    LogFile.prototype.destroy = function () {
+        if (this.stream) {
+            this.stream.end();
+            this.stream.destroySoon();
+            this.stream = null;
+        }
+    };
+
+    var _logMap = {};
+
+    function _push2File(str, title) {
+        var logFile = _logMap[title], now = dateFormat(new Date(), _conf.splitFormat);
+        if (logFile &amp;&amp; logFile.date != now) {
+            logFile.destroy();
+            logFile = null;
+        }
+        if (!logFile) {
+            logFile = _logMap[title] = new LogFile(title, now);
+            spawn('find', [_conf.root, '-type', 'f', '-name', '*.log', '-mtime', '+' + _conf.maxLogFiles, '-exec', 'rm', '{}', '\;']);
+        }
+        logFile.write(str);
+        if (_conf.allLogsFileName) {
+            var allLogFile = _logMap.allLogFile, now = dateFormat(new Date(), _conf.splitFormat);
+            if (allLogFile &amp;&amp; allLogFile.date != now) {
+                allLogFile.destroy();
+                allLogFile = null;
+            }
+            if (!allLogFile) {
+                allLogFile = _logMap.allLogFile = new LogFile(_conf.allLogsFileName, now);
+                spawn('find', ['./', '-type', 'f', '-name', '*.log', '-mtime', '+' + _conf.maxLogFiles, '-exec', 'rm', '{}', '\;']);
+            }
+            allLogFile.write(str);
+        }
+    }
+
+    function dailyFileTransport(data) {
+        _push2File(data.output, data.title);
+    }
+
+    if (conf.transport) {
+        conf.transport = Array.isArray(conf.transport) ? conf.transport : [conf.transport];
+        conf.transport.push(dailyFileTransport)
+    } else {
+        conf.transport = [dailyFileTransport];
+    }
+    return require('./console')(conf);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+logger.info('hello %s %d',  'world', 123, {foo:'bar'});
+logger.warn('hello %s %d %j', 'world', 123, {foo:'bar'});
+logger.error('hello %s %d %j', 'world', 123, {foo:'bar'}, [1, 2, 3, 4], Object);
+```
+
+### Daily Log
+```javascript
+var logger = require('tracer').<span class="apidocCodeKeywordSpan">dailyfile</span>({root:'.', maxLogFiles:
+10, allLogsFileName: 'myAppName'});
+
+logger.log('hello');
+logger.trace('hello', 'world');
+logger.debug('hello %s',  'world', 123);
+logger.info('hello %s %d',  'world', 123, {foo:'bar'});
+logger.warn('hello %s %d %j', 'world', 123, {foo:'bar'});
+logger.error('hello %s %d %j', 'world', 123, {foo:'bar'}, [1, 2, 3, 4], Object);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.getLevel" id="apidoc.element.tracer.getLevel">
+        function <span class="apidocSignatureSpan">tracer.</span>getLevel
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLevel = function (){
+	return settings.level;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.setLevel" id="apidoc.element.tracer.setLevel">
+        function <span class="apidocSignatureSpan">tracer.</span>setLevel
+        <span class="apidocSignatureSpan">(level)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setLevel = function (level){
+	settings.level = level;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+setLevel and close methods to dynamically change the log level.
+these are global settings, affect all output that are created via tracer
+
+```javascript
+var tracer = require('tracer');
+tracer.<span class="apidocCodeKeywordSpan">setLevel</span>(2); //or tracer.setLevel('debug');
+//... ...
+tracer.close();
+
+```
+
+notice:
+if you set level in initialize, you can't change more lower level than the initial level.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tracer.settings" id="apidoc.module.tracer.settings">module tracer.settings</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.settings.close" id="apidoc.element.tracer.settings.close">
+        function <span class="apidocSignatureSpan">tracer.settings.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (){
+	settings.level = Number.MAX_VALUE;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+setLevel and close methods to dynamically change the log level.
+these are global settings, affect all output that are created via tracer
+
+```javascript
+var tracer = require('tracer');
+tracer.setLevel(2); //or tracer.setLevel('debug');
+//... ...
+tracer.<span class="apidocCodeKeywordSpan">close</span>();
+
+```
+
+notice:
+if you set level in initialize, you can't change more lower level than the initial level.
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.settings.getLevel" id="apidoc.element.tracer.settings.getLevel">
+        function <span class="apidocSignatureSpan">tracer.settings.</span>getLevel
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLevel = function (){
+	return settings.level;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.settings.setLevel" id="apidoc.element.tracer.settings.setLevel">
+        function <span class="apidocSignatureSpan">tracer.settings.</span>setLevel
+        <span class="apidocSignatureSpan">(level)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setLevel = function (level){
+	settings.level = level;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+setLevel and close methods to dynamically change the log level.
+these are global settings, affect all output that are created via tracer
+
+```javascript
+var tracer = require('tracer');
+tracer.<span class="apidocCodeKeywordSpan">setLevel</span>(2); //or tracer.setLevel('debug');
+//... ...
+tracer.close();
+
+```
+
+notice:
+if you set level in initialize, you can't change more lower level than the initial level.
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tracer.utils" id="apidoc.module.tracer.utils">module tracer.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.utils.format" id="apidoc.element.tracer.utils.format">
+        function <span class="apidocSignatureSpan">tracer.utils.</span>format
+        <span class="apidocSignatureSpan">(f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (f) {
+	var inspectOpt = this.inspectOpt;
+	var args = arguments;
+	var i = 0;
+
+	if (typeof f !== 'string') {
+		var objects = [];
+		for (; i &lt; args.length; i++) {
+			objects.push(util.inspect(args[i], inspectOpt));
+		}
+		return objects.join(' ');
+	}
+
+	i = 1;
+	var str = String(f).replace(formatRegExp, function(x) {
+		switch (x) {
+		case '%s':
+			return String(args[i++]);
+		case '%d':
+			return Number(args[i++]);
+		case '%j':
+			try {
+			    if (args[i] instanceof Error) {
+				return JSON.stringify(args[i++], ['message', 'stack', 'type', 'name']);
+        		    } else {
+            			return JSON.stringify(args[i++]);
+        		    }
+			} catch(e) {
+				return '[Circular]';
+			}
+		case '%t':
+			return util.inspect(args[i++], inspectOpt);
+		default:
+			return x;
+		}
+	});
+	for ( var len = args.length, x = args[i]; i &lt; len; x = args[++i]) {
+		if (x === null || typeof x !== 'object') {
+			str += ' ' + x;
+		} else {
+			str += ' ' + util.inspect(x, inspectOpt);
+		}
+	}
+	return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tracer.utils.union" id="apidoc.element.tracer.utils.union">
+        function <span class="apidocSignatureSpan">tracer.utils.</span>union
+        <span class="apidocSignatureSpan">(obj, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">union = function (obj, args) {
+	for (var i = 0, len = args.length; i &lt; len; i += 1) {
+		var source = args[i];
+		for ( var prop in source) {
+			obj[prop] = source[prop];
+		}
+	}
+	return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		inspectOpt : {
+			showHidden : false, //if true then the object's non-enumerable properties will be shown too. Defaults to false
+			depth : 2 //tells inspect how many times to recurse while formatting the object. This is useful for inspecting large complicated
+ objects. Defaults to 2. To make it recurse indefinitely pass null.
+		}
+	};
+
+	// union user's config and default
+	_config = utils.<span class="apidocCodeKeywordSpan">union</span>(_config, arguments);
+
+	var _self = {};
+
+	_config.format = Array.isArray(_config.format) ? _config.format
+		: [ _config.format ];
+
+	_config.filters = Array.isArray(_config.filters) ? _config.filters
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
